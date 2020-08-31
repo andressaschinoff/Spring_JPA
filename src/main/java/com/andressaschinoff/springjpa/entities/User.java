@@ -3,14 +3,33 @@ package com.andressaschinoff.springjpa.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+
+
+@Entity
 public class User implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@Column(name = "nm_user")
 	private String name;
+	
+	@Column(name = "email_user")
 	private String email;
+	
+	@Column(name = "phone_user")
 	private String phone;
+	
+	@Column(name = "psw_user")
 	private String password;
 	
 	public User(Long id, String name, String email, String phone, String password) {
